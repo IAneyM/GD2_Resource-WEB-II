@@ -149,13 +149,13 @@ footer {
     grid-template-columns: repeat(6, 1fr);
     padding:2rem;
     grid-column-gap:2rem;
+}
 
 #preamble-btn-1 {
-transition:transform 2s;
+transition: transform 2s;
 
 }
 
 .rotate {
     transform:rotate(405deg);
-}
 }
