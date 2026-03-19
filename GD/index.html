@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>KAIKA | Soil and Plants of Japan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="bg-video">
+        <source src="background.mp4" type="video/mp4">
+        <img src="fallback.jpg" alt="KAIKA Background">
+    </video>
+    <div class="overlay"></div> </div>
+        <div class="main-title">
+            <h1>開花</h1>
+             <span class="subtitle">STORIES OF REGIONAL SOIL</span>
+        </div>
+    </div>
+
+    <nav class="side-nav">
+        <div class="logo">KAIKA</div>
+        <ul class="menu-list">
+            <li><a href="#about">About Project</a></li>
+            <li><a href="#soil">Regional Soil</a></li>
+            <li><a href="#plants">Plant Life</a></li>
+            <li><a href="#archive">Archive</a></li>
+        </ul>
+    </nav>
+
+    <div class="menu-open-btn" onclick="toggleMenu()">
+    <span>MENU</span>
+</div>
+
+<nav class="side-nav" id="myNav">
+    <div class="close-btn" onclick="toggleMenu()">&times;</div>
+    
+    <div class="nav-content">
+        <div class="menu-group">
+            <h3>Regional Soil</h3>
+            <ul>
+                <li><a href="hokkaido.html">Hokkaido Brown Soil</a></li>
+                <li><a href="honshu.html">Kanto Red Clay</a></li>
+                <li><a href="okinawa.html">Okinawa Coral Sand</a></li>
+            </ul>
+        </div>
+        </div>
+</nav>
+
+    <script>
+    function toggleMenu() {
+        const nav = document.getElementById('myNav');
+        nav.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
