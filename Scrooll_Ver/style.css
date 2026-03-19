@@ -1,0 +1,122 @@
+/* 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+
+/* 기본 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* 🎬 HERO */
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 4rem;
+}
+
+.overlay p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* 🌍 섹션 */
+.section {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* 텍스트 */
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  letter-spacing: 0.3em;
+}
+
+/* 배경 */
+.hokkaido {
+  background-image: url("image/image/hokkaido.jpg");
+}
+
+.honshu {
+  background-image: url("image/image/honshu.jpg");
+}
+
+.okinawa {
+  background-image: url("image/image/okinawa.jpg");
+}
+
+/* 🔥 INTERLUDE */
+.interlude {
+  height: 200vh;
+  position: relative;
+  background: #f5f5f5;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interlude-content {
+  max-width: 600px;
+  text-align: left;
+
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.interlude-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.interlude-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}

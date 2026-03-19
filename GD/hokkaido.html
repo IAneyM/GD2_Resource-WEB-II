@@ -7,15 +7,21 @@
     <link rel="stylesheet" href="https://use.typekit.net/your-id.css">
     <link rel="stylesheet" href="detail.css">
 </head>
+
 <body class="detail-page">
+
+    <!-- ================= LEFT NAV ================= -->
     <aside class="fixed-side-nav">
-        <div class="menu-trigger" onclick="toggleMenu()"> <span class="bar"></span>
+        <div class="menu-trigger" onclick="toggleMenu()">
+            <span class="bar"></span>
             <span class="bar"></span>
         </div>
         <p class="vertical-text amandine-font">KAIKA</p>
     </aside>
 
-    <nav id="slide-menu" class="slide-menu"> <div class="close-btn" onclick="toggleMenu()">✕</div>
+    <!-- ================= SLIDE MENU ================= -->
+    <nav id="slide-menu" class="slide-menu">
+        <div class="close-btn" onclick="toggleMenu()">✕</div>
         <div class="menu-inner">
             <ul class="menu-list amandine-font">
                 <li><a href="hokkaido.html">Hokkaido</a></li>
@@ -25,7 +31,10 @@
         </div>
     </nav>
 
+    <!-- ================= MAIN ================= -->
     <main class="main-content">
+
+        <!-- HERO -->
         <section class="hero-section">
             <div class="title-group">
                 <h1 class="amandine-font">HOKKAIDO</h1>
@@ -34,61 +43,92 @@
             </div>
         </section>
 
-                <section class="flowers-section">
-    <div class="flower-grid">
-        <div class="flower-item left">
-            <div class="image-wrapper">
-                <img src="image/lavender_fixed.jpg" alt="Lavender">
-            </div>
-            <div class="item-info">
-                <p class="item-name amandine-font">LAVENDER</p>
-                <p class="item-desc">Representative flower of Hokkaido hills.</p>
-                <p class="item-desc">北海道の丘の代表的な花です。</p>
-            </div>
-        </div>
+        <!-- ================= 🔥 FLOWERS SECTION (완전히 구조 변경됨) ================= -->
+        <section class="flowers-section">
+            <div class="flowers-layout">
 
-        <div class="flower-item right">
-            <div class="section-header-inline">
-                <h2 class="amandine-font">FLOWERS</h2>
-                <p class="jp-sub">地域別の花</p>
-            </div>
-            <div class="image-wrapper">
-                <img src="image/sunflower_fixed.jpg" alt="Sunflower">
-            </div>
-            <div class="item-info">
-                <p class="item-name amandine-font">SUNFLOWER</p>
-                <p class="item-desc">Representative flower of Hokkaido</p>
-                <p class="item-desc">北海道の丘の代表的花。</p>
-            </div>
-        </div>
-    </div>
-</section>
+                <!-- 🔥 LEFT SIDEBAR -->
+                <div class="flower-sidebar">
+                    <div class="flower-link active" data-flower="lavender">LAVENDER</div>
+                    <div class="flower-link" data-flower="sunflower">SUNFLOWER</div>
+                </div>
 
-<section class="soil-info-section">
-    <div class="soil-visual">
-        <img src="image/hokkaido_soil.png" alt="Soil" style="max-width:400px; margin-bottom:50px;">
-    </div>
-    <div class="soil-grid">
-        <div class="soil-card">
-            <h4>COMPOSITION</h4>
-            <p>Andosols (Volcanic Ash Soil)</p>
-        </div>
-        <div class="soil-card">
-            <h4>PH LEVEL</h4>
-            <p>5.5 - 6.5 (Slightly Acidic)</p>
-        </div>
-        <div class="soil-card">
-            <h4>NUTRIENTS</h4>
-            <p>High Organic Matter</p>
-        </div>
-    </div>
-</section>
+                <!-- 🔥 RIGHT DISPLAY -->
+                <div class="flower-display">
+
+                    <!-- LAVENDER -->
+                    <div class="flower-content active" id="lavender">
+                        <img src="image/lavender_fixed.jpg" alt="Lavender">
+                        <div class="info">
+                            <h2>LAVENDER</h2>
+                            <p>Representative flower of Hokkaido hills.</p>
+                            <p>北海道の丘の代表的な花です。</p>
+                        </div>
+                    </div>
+
+                    <!-- SUNFLOWER -->
+                    <div class="flower-content" id="sunflower">
+                        <img src="image/sunflower_fixed.jpg" alt="Sunflower">
+                        <div class="info">
+                            <h2>SUNFLOWER</h2>
+                            <p>Representative flower of Hokkaido</p>
+                            <p>北海道の丘の代表的花。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SOIL ================= -->
+        <section class="soil-info-section">
+            <div class="soil-visual">
+                <img src="image/hokkaido_soil.png" alt="Soil">
+            </div>
+
+            <div class="soil-grid">
+                <div class="soil-card">
+                    <h4>COMPOSITION</h4>
+                    <p>Andosols (Volcanic Ash Soil)</p>
+                </div>
+                <div class="soil-card">
+                    <h4>PH LEVEL</h4>
+                    <p>5.5 - 6.5 (Slightly Acidic)</p>
+                </div>
+                <div class="soil-card">
+                    <h4>NUTRIENTS</h4>
+                    <p>High Organic Matter</p>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- ================= 🔥 SCRIPT (핵심 추가 부분) ================= -->
     <script>
         function toggleMenu() {
             const menu = document.getElementById('slide-menu');
             menu.classList.toggle('active');
         }
+
+        /* 🔥 hover 인터랙션 (추가된 핵심 코드) */
+        const links = document.querySelectorAll('.flower-link');
+        const contents = document.querySelectorAll('.flower-content');
+
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                const target = link.dataset.flower;
+
+                // reset
+                links.forEach(l => l.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // activate
+                link.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
+        });
     </script>
+
 </body>
 </html>

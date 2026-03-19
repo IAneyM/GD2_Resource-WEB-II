@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Japan Travel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 🎬 HERO VIDEO -->
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="image/video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h1>Explore Japan</h1>
+      <p>Scroll Down</p>
+    </div>
+  </section>
+
+  <!-- ❄️ HOKKAIDO -->
+  <section class="section hokkaido" id="hokkaido">
+    <div class="title">HOKKAIDO</div>
+  </section>
+
+  <!-- 🔥 INTERLUDE 1 -->
+  <section class="interlude">
+    <div class="sticky">
+      <div class="interlude-content">
+        <h2>대지와 대화하고<br>후지 플레이하는 골프장</h2>
+        <p>
+          골프의 기원은 그 땅의 지형을 즐기는 것입니다.<br>
+          자연과 함께하는 경험을 제공합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🏙 HONSHU -->
+  <section class="section honshu" id="honshu">
+    <div class="title">HONSHU</div>
+  </section>
+
+  <!-- 🔥 INTERLUDE 2 -->
+  <section class="interlude">
+    <div class="sticky">
+      <div class="interlude-content">
+        <h2>전통과 현대가 공존하는 공간</h2>
+        <p>
+          일본의 중심에서 경험하는 다양한 문화와 도시의 매력.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌊 OKINAWA -->
+  <section class="section okinawa" id="okinawa">
+    <div class="title">OKINAWA</div>
+  </section>
+
+  <!-- 🔥 INTERLUDE 3 -->
+  <section class="interlude">
+    <div class="sticky">
+      <div class="interlude-content">
+        <h2>전통과 현대가 공존하는 공간</h2>
+        <p>
+          일본의 중심에서 경험하는 다양한 문화와 도시의 매력.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔥 SCRIPT -->
+  <script>
+    const sections = document.querySelectorAll(".section");
+    const locked = new Set();
+
+    // 🔒 턱 걸림 효과
+    window.addEventListener("scroll", () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const id = section.id;
+
+        if (!locked.has(id) && rect.top <= 0 && rect.bottom > 0) {
+          locked.add(id);
+
+          window.scrollTo(0, window.scrollY);
+          document.body.style.overflow = "hidden";
+
+          setTimeout(() => {
+            document.body.style.overflow = "";
+          }, 700);
+        }
+      });
+    });
+
+    // 🔥 interlude 애니메이션
+    const interludes = document.querySelectorAll(".interlude");
+
+    window.addEventListener("scroll", () => {
+      interludes.forEach(section => {
+        const content = section.querySelector(".interlude-content");
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        const progress = Math.min(
+          Math.max((windowHeight - rect.top) / (windowHeight + rect.height), 0),
+          1
+        );
+
+        const scale = 0.8 + progress * 0.6;
+        const opacity = progress * 1.2;
+
+        content.style.transform = `scale(${scale})`;
+        content.style.opacity = opacity;
+      });
+    });
+  </script>
+
+</body>
+</html>
