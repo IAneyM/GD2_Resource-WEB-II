@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIKA | Hokkaido</title>
+    <link rel="stylesheet" href="https://use.typekit.net/your-id.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body class="detail-page">
+    <aside class="fixed-side-nav">
+        <div class="menu-trigger" onclick="toggleMenu()"> <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <p class="vertical-text amandine-font">KAIKA</p>
+    </aside>
+
+    <nav id="slide-menu" class="slide-menu"> <div class="close-btn" onclick="toggleMenu()">✕</div>
+        <div class="menu-inner">
+            <ul class="menu-list amandine-font">
+                <li><a href="hokkaido.html">Hokkaido</a></li>
+                <li><a href="honshu.html">Honshu</a></li>
+                <li><a href="okinawa.html">Okinawa</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="title-group">
+                <h1 class="amandine-font">HOKKAIDO</h1>
+                <p class="jp-title">北海道</p>
+                <p class="sub-info">SUBARCTIC CLIMATE / 亞寒帶</p>
+            </div>
+        </section>
+
+                <section class="flowers-section">
+    <div class="flower-grid">
+        <div class="flower-item left">
+            <div class="image-wrapper">
+                <img src="image/lavender_fixed.jpg" alt="Lavender">
+            </div>
+            <div class="item-info">
+                <p class="item-name amandine-font">LAVENDER</p>
+                <p class="item-desc">Representative flower of Hokkaido hills.</p>
+                <p class="item-desc">北海道の丘の代表的な花です。</p>
+            </div>
+        </div>
+
+        <div class="flower-item right">
+            <div class="section-header-inline">
+                <h2 class="amandine-font">FLOWERS</h2>
+                <p class="jp-sub">地域別の花</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="image/sunflower_fixed.jpg" alt="Sunflower">
+            </div>
+            <div class="item-info">
+                <p class="item-name amandine-font">SUNFLOWER</p>
+                <p class="item-desc">Representative flower of Hokkaido</p>
+                <p class="item-desc">北海道の丘の代表的花。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="soil-info-section">
+    <div class="soil-visual">
+        <img src="image/hokkaido_soil.png" alt="Soil" style="max-width:400px; margin-bottom:50px;">
+    </div>
+    <div class="soil-grid">
+        <div class="soil-card">
+            <h4>COMPOSITION</h4>
+            <p>Andosols (Volcanic Ash Soil)</p>
+        </div>
+        <div class="soil-card">
+            <h4>PH LEVEL</h4>
+            <p>5.5 - 6.5 (Slightly Acidic)</p>
+        </div>
+        <div class="soil-card">
+            <h4>NUTRIENTS</h4>
+            <p>High Organic Matter</p>
+        </div>
+    </div>
+</section>
+    </main>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('slide-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
